@@ -19,7 +19,7 @@ def speech_to_text_route():
     print("processing speech-to-text")
     # Get the user's speech from their request
     audio_binary = request.data
-    
+
     # Call speech_to_text function to transcribe the speech
     text = speech_to_text(audio_binary)
 
@@ -52,7 +52,7 @@ def process_message_route():
     openai_list = [s for s in openai_response_text.splitlines() if s]
     openai_response_text = os.linesep.join(openai_list)
 
-    # Call our text_to_speech function to convert 
+    # Call our text_to_speech function to convert
     # OpenAI Api's reponse to speech
     openai_response_speech = text_to_speech(openai_response_text, voice)
 
@@ -64,7 +64,8 @@ def process_message_route():
                             .decode('utf-8')
                             )
 
-    # Send a JSON response back to the user containing their message's response both in text and speech formats
+    # Send a JSON response back to the user containing their message's response
+    # both in text and speech formats
     openai_input = {
                 "openaiResponseText": openai_response_text,
                 "openaiResponseSpeech": openai_response_speech
@@ -73,9 +74,9 @@ def process_message_route():
     response_input = {
         'response': json.dumps(openai_input),
         'status': 200,
-        'mimetype' : 'application/json'
+        'mimetype': 'application/json'
         }
-    
+
     response = app.response_class(**response_input)
 
     print(response)

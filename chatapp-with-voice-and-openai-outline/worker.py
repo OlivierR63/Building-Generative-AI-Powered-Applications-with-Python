@@ -16,7 +16,7 @@ def speech_to_text(audio_binary):
     }
 
     # Set up the body of our HTTP request
-    body = audio_binary
+    # body = audio_binary
 
     # Send a HTTP Post request
     response = requests.post(api_url, params=params, data=audio_binary).json()
@@ -67,8 +67,9 @@ def text_to_speech(text, voice=""):
 def openai_process_message(user_message):
     # Set the prompt for OpenAI Api
     prompt = ("Act like a personal assistant. "
-            "You can respond to questions, translate sentences, "
-            "summarize news, and give recommendations.")
+                "You can respond to questions, translate sentences, "
+                "summarize news, and give recommendations."
+            )
 
     # Call the OpenAI Api to process our prompt
     openai_response = openai_client.chat.completions.create(

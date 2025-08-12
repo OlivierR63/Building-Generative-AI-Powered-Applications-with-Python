@@ -8,6 +8,7 @@ class PreWarmingPolicy:
         'maxUseCount': 1000
     }
 
+
 class NoPreWarmingPolicy:
     sessionPool = {
         'maxUseCount': 1000
