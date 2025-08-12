@@ -66,10 +66,11 @@ def text_to_speech(text, voice=""):
 
 def openai_process_message(user_message):
     # Set the prompt for OpenAI Api
-    prompt = ("Act like a personal assistant. "
-                "You can respond to questions, translate sentences, "
-                "summarize news, and give recommendations."
-            )
+    prompt = (
+        "Act like a personal assistant. "
+        "You can respond to questions, translate sentences, "
+        "summarize news, and give recommendations."
+    )
 
     # Call the OpenAI Api to process our prompt
     openai_response = openai_client.chat.completions.create(
