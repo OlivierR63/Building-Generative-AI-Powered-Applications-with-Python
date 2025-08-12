@@ -1,6 +1,7 @@
 class DefaultPolicy:
     sessionPool = {}
 
+
 class PreWarmingPolicy:
     sessionPool = {
         'minWarmSessions': 1,
