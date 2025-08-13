@@ -39,4 +39,4 @@ iface = gr.Interface(
 )
 
 # Launch the web app interface
-iface.launch()
+iface.launch(share=True)
