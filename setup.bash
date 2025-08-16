@@ -8,4 +8,4 @@ virtualenv my_env
  # activate my_env
 source my_env/bin/activate
 
-python3 -m pip install transformers==4.30.2 torch
+python3 -m pip install transformers torch
