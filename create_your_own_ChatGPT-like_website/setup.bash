@@ -1,5 +1,8 @@
 #!/bin/bash
-source ../setup.bash
+curdir=`pwd`
+cd ..
+source setup.bash
+cd $curdir
 
 echo "\nInstall flask\n"
 python3 -m pip install flask
