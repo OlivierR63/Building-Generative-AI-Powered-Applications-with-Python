@@ -103,7 +103,7 @@ const sendMessage = async (message) => {
     }
 };
 
-//Section: Button to submit to the model and get the response
+// Section: Button to submit to the model and get the response
 messageForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     const message = messageInput.value.trim();

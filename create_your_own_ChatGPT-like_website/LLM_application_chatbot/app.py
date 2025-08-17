@@ -58,10 +58,27 @@ def get_bot_response(input_text, history):
 
 @app.route('/', methods=['GET'])
 def home():
+    """
+    Renders the home page of the application.
+
+    Returns:
+        flask.render_template: The rendered index.html template.
+    """
     return render_template('index.html')
 
 @app.route('/chatbot', methods=['POST'])
 def handle_prompt():
+    """
+    Handles POST requests to the chatbot endpoint.
+    
+    This function processes a JSON request containing a user prompt,
+    generates a bot response, and updates the conversation history.
+
+    Returns:
+        flask.jsonify: A JSON response containing the bot's message.
+                       Returns a 400 status code for invalid input or a 
+                       500 status code for server errors.
+    """
     try:
         data = request.get_json()
         if not data or 'prompt' not in data:
@@ -85,4 +102,4 @@ def handle_prompt():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)
