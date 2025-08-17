@@ -7,20 +7,22 @@ const messageForm = document.getElementById('message-form');
 const messageInput = document.getElementById('message-input');
 //
 
-//Section: function to creat the dialogue window
+// Section: function to create the dialogue window
 const addMessage = (message, role, imgSrc) => {
-  // creat elements in the dialogue window
+  // create elements in the dialogue window
   const messageElement = document.createElement('div');
   const textElement = document.createElement('p');
   messageElement.className = `message ${role}`;
   const imgElement = document.createElement('img');
   imgElement.src = `${imgSrc}`;
-  // append the image and message to the message element
+
+  // Append the image and message to the message element
   messageElement.appendChild(imgElement);
   textElement.innerText = message;
   messageElement.appendChild(textElement);
   messagesContainer.appendChild(messageElement);
-  // creat the ending of the message
+
+  // Create the ending of the message
   var clearDiv = document.createElement("div");
   clearDiv.style.clear = "both";
   messagesContainer.appendChild(clearDiv);
@@ -28,9 +30,8 @@ const addMessage = (message, role, imgSrc) => {
 //
 
 
-//Section: Calling the model
+// Section: Calling the model
 const sendMessage = async (message) => {
-  // addMessage(message, 'user','user.jpeg');
   addMessage(message, 'user','../static/user.jpeg');
   // Loading animation
   const loadingElement = document.createElement('div');
@@ -42,7 +43,7 @@ const sendMessage = async (message) => {
   messagesContainer.appendChild(loadingtextElement);
 
   async function makePostRequest(msg) {
-    const url = 'www.example.com';  // Make a POST request to this url
+    const url = 'https://olivierrocha-5000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai/chatbot'
     const requestBody = {
       prompt: msg
     };
@@ -80,12 +81,10 @@ const sendMessage = async (message) => {
   if (data.error) {
     // Handle the error here
     const errorMessage = JSON.stringify(data);
-    // addMessage(errorMessage, 'error','Error.png');
     addMessage(errorMessage, 'error','../static/Error.png');
   } else {
     // Process the normal response here
     const responseMessage = data['response'];
-    // addMessage(responseMessage, 'aibot','Bot_logo.png');
     addMessage(responseMessage, 'aibot','../static/Bot_logo.png');
   }
   
