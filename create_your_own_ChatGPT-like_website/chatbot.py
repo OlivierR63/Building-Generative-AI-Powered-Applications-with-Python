@@ -12,7 +12,7 @@ print("\nBot: Hi! Ask me a question or type 'quit' to end the chat")
 while True:
     try:
         # Create conversation history string
-        history_string = "\n".join([f"User: {h}" if i % 2 == 0 else f"Bot: {h}" for i, h in enumerate(conversation_history[-4:])])
+        history_string = "\n".join([f"User: {h}" if i % 2 == 0 else f"Bot: {h}" for i, h in enumerate(conversation_history[-10:])])
 
         # Get the input data from the user
         input_text = input("\nQuestion > ").strip()
